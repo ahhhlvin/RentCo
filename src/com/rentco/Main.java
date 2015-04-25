@@ -6,17 +6,23 @@ import java.util.Random;
 public class Main {
 
     public static void main(String[] args) {
-        ArrayList<Car> cars = new ArrayList<Car>();
-        cars.add(new Car());
-        cars.add(new Car());
-        cars.add(new Car());
-        cars.add(new Car());
-        cars.add(new Car());
+        ArrayList vehicles = new ArrayList();
+        vehicles.add(new Car());
+        vehicles.add(new Car());
+        vehicles.add(new Car());
+        vehicles.add(new Car());
+        vehicles.add(new Car());
+        vehicles.add(new Tractor());
+        vehicles.add(new Tractor());
+        vehicles.add(new Tractor());
+        vehicles.add(new Tractor());
+        vehicles.add(new Tractor());
+
 
         for(int i=0; i<5; i++)
         {
-            driveCars(cars);
-            refillCars(cars);
+            driveVehicles(vehicles);
+            refillVehicles(vehicles);
         }
 
 
@@ -38,23 +44,23 @@ public class Main {
 
     }
 
-    static void driveCars(ArrayList<Car> cars)
+    static void driveVehicles(ArrayList<Car> vehicles)
     {
-        for (Car car : cars)
+        for (Vehicle vehicle : vehicles)
         {
-            car.drive(new Random().nextInt(10));
-            System.out.println("CAR - Gas remaining: "+ car.getGas());
+            vehicle.drive(new Random().nextInt(10));
+            System.out.println(vehicle.getClass() + " - Gas remaining: "+ vehicle.getGas());
         }
     }
 
-    static void refillCars(ArrayList<Car> cars)
+    static void refillVehicles(ArrayList<Vehicle> vehicles)
     {
-        for (Car car : cars)
+        for (Vehicle vehicle : vehicles)
         {
-            if(car.isEmpty())
+            if(vehicle.isEmpty())
             {
-                car.refill();
-                System.out.println("Refilling CAR...");
+                vehicle.refill();
+                System.out.println("Refilling " + vehicle.getClass() + "...");
             }
         }
     }

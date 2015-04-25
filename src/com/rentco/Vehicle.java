@@ -4,18 +4,18 @@ package com.rentco;
  * Alvin Kuang
  * C4Q Access Code 2.1
  */
-public class Generator
+public class Vehicle
 {
     int gas = 0;
 
-    public Generator()
+    public Vehicle()
     {
         refill();
     }
 
-    public void generate(int electricity)
+    public void drive(int distance)
     {
-        gas = gas - electricity;
+        gas = gas - distance;
         if(gas < 0)
             gas = 0;
     }
@@ -30,6 +30,15 @@ public class Generator
         gas = gas + 10;
     }
 
+    public void playMusic()
+    {
+        //Pretend we coded this
+    }
+
+    public void turn(int amount)
+    {
+        //Really complex turn code that we don't care about
+    }
 
     public int getGas()
     {
