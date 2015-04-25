@@ -18,6 +18,24 @@ public class Main {
             driveCars(cars);
             refillCars(cars);
         }
+
+
+        ArrayList<Generator> generators = new ArrayList<Generator>();
+        generators.add(new Generator());
+        generators.add(new Generator());
+        generators.add(new Generator());
+        generators.add(new Generator());
+        generators.add(new Generator());
+
+        for(int i=0; i<5; i++) {
+            generateGenerator(generators);
+            refillGenerator(generators);
+        }
+
+
+
+
+
     }
 
     static void driveCars(ArrayList<Car> cars)
@@ -25,7 +43,7 @@ public class Main {
         for (Car car : cars)
         {
             car.drive(new Random().nextInt(10));
-            System.out.println("Gas remaining: "+ car.getGas());
+            System.out.println("CAR - Gas remaining: "+ car.getGas());
         }
     }
 
@@ -36,8 +54,33 @@ public class Main {
             if(car.isEmpty())
             {
                 car.refill();
-                System.out.println("Refilling...");
+                System.out.println("Refilling CAR...");
             }
         }
     }
+
+
+
+
+    static void generateGenerator(ArrayList<Generator> generators)
+    {
+        for (Generator generator : generators)
+        {
+            generator.generate(new Random().nextInt(10));
+            System.out.println("GENERATOR - Gas remaining: "+ generator.getGas());
+        }
+    }
+
+    static void refillGenerator(ArrayList<Generator> generators)
+    {
+        for (Generator generator : generators)
+        {
+            if(generator.isEmpty())
+            {
+                generator.refill();
+                System.out.println("Refilling GENERATOR...");
+            }
+        }
+    }
+
 }
